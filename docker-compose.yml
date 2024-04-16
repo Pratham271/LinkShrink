@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: "mongo"
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+  
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    depends_on:
+      - mongodb
+    container_name: backend
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: ./Backend
+        target: /backend/app/src
+    environment:
+      - MONGO_URL=mongo://mongodb:27017
+    
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+    container_name: frontend
+    ports:
+      - 5173:5173
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /frontend/app/src
+    
+volumes:
+  mongodb_data:
+
