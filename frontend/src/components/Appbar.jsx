@@ -16,7 +16,7 @@ const Appbar = () => {
     </div>
     <div className="flex">
         <div className="flex flex-row justify-center h-full mr-4 items-center">
-            <button className='bg-none border-none  p-4 '><a href="https://github.com/Pratham271/Url-shortener-frontend.git" target='_blank' className='flex items-center'>Code &nbsp;<FaGithub/></a></button>
+            <button className='bg-none border-none  p-4 '><a href="https://github.com/Pratham271/LinkShrink.git" target='_blank' className='flex items-center'>Code &nbsp;<FaGithub/></a></button>
         </div>
         
     </div>
