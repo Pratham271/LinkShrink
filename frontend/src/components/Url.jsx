@@ -19,11 +19,11 @@ const Url = () => {
             setLoading(true)
             console.log(url)
             console.log(tag)
-            const response = await axios.post("https://short-pc.onrender.com/short", {
+            const response = await axios.post("https://linkshrink-5el0.onrender.com/short", {
                 url: url,
                 tag: tag
             })
-            setShortUrl(`https://short-pc.onrender.com/${response.data.shortenUrl}`)
+            setShortUrl(`https://linkshrink-5el0.onrender.com/${response.data.shortenUrl}`)
         } catch (error) {
             console.log(error)
             alert(error.response.data.message)
